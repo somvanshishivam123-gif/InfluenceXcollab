@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InfluenceXcollab | Cultivate & Monetize Influence</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold-light: #fef08a;
+      --gold-medium: #facc15;
+      --gold-dark: #b45309;
+      --rose-dark: #7c2d12;
+      --purple-dark: #7c3aed;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; background: #000; overflow-x: hidden; }
+    body { font-family: 'Lora', serif; color: #ddd; position: relative; }
+
+    h1,h2,h3,h4,h5,h6,.font-display { font-family: 'Playfair Display', serif; }
+
+    /* Floating Elements */
+    .floating-elements { position: fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:1; }
+    .floating-rose,.floating-leaf { position:absolute; opacity:0.03; animation: float 20s ease-in-out infinite; font-size:clamp(2rem,8vw,12rem); }
+    .floating-leaf { animation: float 25s ease-in-out infinite reverse; font-size:clamp(1.5rem,6vw,8rem); }
+
+    @keyframes float { 0%,100%{transform:translateY(0) rotate(0deg);} 33%{transform:translateY(-30px) rotate(120deg);} 66%{transform:translateY(-15px) rotate(240deg);} }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #0a0a0a; border-radius:10px; }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(45deg,#d97706,#f59e0b); border-radius:10px; border:2px solid transparent; background-clip: content-box; }
+    ::-webkit-scrollbar-thumb:hover { background: linear-gradient(45deg,#facc15,#eab308); }
+
+    /* Text Gradients */
+    .text-gold { background: linear-gradient(to right,#fde047,#b45309); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .text-gold-gradient { background: linear-gradient(135deg,#fef08a 0%,#facc15 25%,#eab308 50%,#d97706 75%,#b45309 100%); background-size:300% 300%; -webkit-background-clip: text; -webkit-text-fill-color:transparent; animation: shimmer 3s ease-in-out infinite; }
+    @keyframes shimmer { 0%,100%{background-position:0% 50%;}50%{background-position:100% 50%;} }
+
+    /* Glass / Hero Effects */
+    .glass { background: rgba(15,15,35,0.4); backdrop-filter: blur(20px); border:1px solid rgba(255,255,255,0.1); }
+    .hero-pattern { background-image: radial-gradient(circle at 20% 80%, rgba(251,191,36,0.1) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(219,119,6,0.1) 0%, transparent 50%), radial-gradient(circle at 40% 40%, rgba(127,29,18,0.05) 0%, transparent 50%); }
+
+    /* Buttons Pulse */
+    @keyframes pulse-gold { 0%,100%{box-shadow:0 0 0 0 rgba(253,224,138,0.7);}50%{box-shadow:0 0 0 20px rgba(253,224,138,0);} }
+    .pulse-gold { animation: pulse-gold 2s infinite; }
+  </style>
+</head>
+<body class="antialiased selection:bg-gradient-to-r from-yellow-400 to-orange-500 selection:text-black">
+
+<div class="floating-elements">
+  <div class="floating-rose" style="top:10%; left:10%; animation-delay:0s;">🌹</div>
+  <div class="floating-rose" style="top:20%; right:15%; animation-delay:5s;">🌸</div>
+  <div class="floating-leaf" style="top:60%; left:20%; animation-delay:10s;">🍃</div>
+  <div class="floating-rose" style="top:80%; right:25%; animation-delay:15s;">🌺</div>
+  <div class="floating-leaf" style="bottom:20%; left:70%; animation-delay:2s;">🌿</div>
+</div>
+
+<nav class="flex justify-between items-center px-8 py-5 glass sticky top-0 z-50 border-b border-zinc-900/50 backdrop-blur-xl shadow-2xl">
+  <h1 class="text-3xl md:text-4xl font-display font-bold tracking-wide">
+    Influence<span class="text-gold-gradient">X</span>collab
+  </h1>
+  <div class="space-x-6 flex items-center text-sm md:text-base">
+    <a href="#features" class="hover:text-gold-gradient transition-colors duration-300 hidden sm:inline-block">Features</a>
+    <a href="#how-it-works" class="hover:text-gold-gradient transition-colors duration-300 hidden sm:inline-block">Escrow Engine</a>
+    <a href="#pricing" class="hover:text-gold-gradient transition-colors duration-300">Plans</a>
+    <a href="#join" class="hover:text-gold-gradient transition-colors duration-300">Apply</a>
+    <a href="login.html" class="px-5 py-2 border border-yellow-600 text-yellow-500 rounded-full hover:bg-yellow-600 hover:text-black transition-all duration-300 font-medium">
+      Login
+    </a>
+  </div>
+</nav>
+
+<section class="relative text-center py-40 flex flex-col items-center justify-center overflow-hidden min-h-screen hero-pattern">
+  <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550684376-efcbd6e3f031?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-20"></div>
+  <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+  <div class="relative z-10 max-w-4xl px-6">
+    <span class="text-xs uppercase font-bold tracking-widest text-yellow-500/80 bg-yellow-950/40 px-4 py-1.5 rounded-full border border-yellow-900/30 mb-6 inline-block">The Smarter Influencer Marketplace</span>
+    <h2 class="text-5xl md:text-7xl font-bold mb-6 text-gold-gradient leading-tight drop-shadow-lg">Cultivate Growth.<br>Secure Your Revenue.</h2>
+    <p class="mb-10 text-lg md:text-xl text-zinc-300 max-w-2xl mx-auto opacity-90 font-light">
+      The "Fiverr for creator economy". Run targeted, high-yielding campaigns backed by strict <span class="text-yellow-400 font-semibold">AI matching</span> and a secure <span class="text-yellow-400 font-semibold">Escrow transactional vault</span>.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#join">
+        <button class="w-full sm:w-auto bg-gradient-to-r from-yellow-600 to-yellow-500 text-black px-10 py-4 rounded-full font-bold text-lg hover:scale-105 hover:shadow-[0_0_20px_rgba(202,138,4,0.4)] transition-all duration-300 pulse-gold">
+          Hire Creators (Brand)
+        </button>
+      </a>
+      <a href="#join">
+        <button class="w-full sm:w-auto bg-zinc-900 text-zinc-100 border border-zinc-800 px-10 py-4 rounded-full font-bold text-lg hover:bg-zinc-800 transition-all duration-300">
+          Earn from Deals (Influencer)
+        </button>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="features" class="py-24 px-8 max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center relative">
+  <div class="group relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 p-10 cursor-pointer transition duration-500 hover:border-red-900/50">
+    <div class="text-4xl mb-4 opacity-50 group-hover:opacity-100 transition-opacity">🏆</div>
+    <h3 class="text-2xl font-bold mb-2 font-display text-zinc-100 relative z-10">15% Escrow Cut</h3>
+    <p class="text-zinc-500 text-sm z-10 relative group-hover:opacity-0 transition-opacity duration-300">Zero risks. High transparency.</p>
+    <div class="absolute inset-0 bg-gradient-to-br from-red-950/90 to-black text-red-100 flex flex-col items-center justify-center px-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20">
+      <p class="font-medium text-sm">Brands only pay for completed, high-quality milestones. Influencers are guaranteed their paycheck through automated verification.</p>
+    </div>
+  </div>
+  <div class="group relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 p-10 cursor-pointer transition duration-500 hover:border-blue-900/50">
+    <div class="text-4xl mb-4 opacity-50 group-hover:opacity-100 transition-opacity">🌟</div>
+    <h3 class="text-2xl font-bold mb-2 font-display text-zinc-100 relative z-10">Boosted Search</h3>
+    <p class="text-zinc-500 text-sm z-10 relative group-hover:opacity-0 transition-opacity duration-300">Stand out in the field.</p>
+    <div class="absolute inset-0 bg-gradient-to-br from-blue-950/90 to-black text-blue-100 flex flex-col items-center justify-center px-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20">
+      <p class="font-medium text-sm">Creators can instantly activate 7-day boost multipliers to sit directly at the peak of brand discovery queries.</p>
+    </div>
+  </div>
+  <div class="group relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 p-10 cursor-pointer transition duration-500 hover:border-purple-900/50">
+    <div class="text-4xl mb-4 opacity-50 group-hover:opacity-100 transition-opacity">🔮</div>
+    <h3 class="text-2xl font-bold mb-2 font-display text-zinc-100 relative z-10">Smart Match AI</h3>
+    <p class="text-zinc-500 text-sm z-10 relative group-hover:opacity-0 transition-opacity duration-300">Calculated organic synergy.</p>
+    <div class="absolute inset-0 bg-gradient-to-br from-purple-950/90 to-black text-purple-100 flex flex-col items-center justify-center px-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20">
+      <p class="font-medium text-sm">Our AI systems analyze metrics, deep demographic cross-points, and conversion rates to match products instantly.</p>
+    </div>
+  </div>
+  <div class="group relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 p-10 cursor-pointer transition duration-500 hover:border-yellow-900/50">
+    <div class="text-4xl mb-4 opacity-50 group-hover:opacity-100 transition-opacity">📊</div>
+    <h3 class="text-2xl font-bold mb-2 font-display text-zinc-100 relative z-10">ROI Analytics</h3>
+    <p class="text-zinc-500 text-sm z-10 relative group-hover:opacity-0 transition-opacity duration-300">Deep performance tracking.</p>
+    <div class="absolute inset-0 bg-gradient-to-br from-yellow-900/80 to-black text-yellow-100 flex flex-col items-center justify-center px-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20">
+      <p class="font-medium text-sm">Get real-time feedback loops on clicks, conversion paths, and audience impression tracking to measure true marketing value.</p>
+    </div>
+  </div>
+</section>
+
+<section id="how-it-works" class="py-24 bg-zinc-950/50 border-t border-zinc-900 text-center relative">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-4 font-display text-gold-gradient">The Escrow Engine Pipeline</h2>
+    <p class="text-zinc-400 italic mb-16 max-w-xl mx-auto">Eliminating risks of ghosting, payment defaults, and project scope creep completely.</p>
+    
+    <div class="grid md:grid-cols-3 gap-8 text-left relative z-10">
+      <div class="p-8 bg-zinc-900/60 rounded-xl border border-zinc-800 flex flex-col justify-between">
+        <div>
+          <span class="text-3xl font-bold text-yellow-600/50 block mb-4">01</span>
+          <h4 class="text-xl font-bold mb-2 text-zinc-100">Lock the Capital</h4>
+          <p class="text-zinc-400 text-sm leading-relaxed">Brands specify project goals and deposit campaign budgets securely into our holding registry vault before work begins.</p>
+        </div>
+      </div>
+      <div class="p-8 bg-zinc-900/60 rounded-xl border border-zinc-800 flex flex-col justify-between">
+        <div>
+          <span class="text-3xl font-bold text-yellow-600/50 block mb-4">02</span>
+          <h4 class="text-xl font-bold mb-2 text-zinc-100">Generate Content</h4>
+          <p class="text-zinc-400 text-sm leading-relaxed">Influencers receive automated prompts, safely crafting deliverables with the absolute certainty that their pay is already verified.</p>
+        </div>
+      </div>
+      <div class="p-8 bg-zinc-900/60 rounded-xl border border-zinc-800 flex flex-col justify-between">
+        <div>
+          <span class="text-3xl font-bold text-yellow-600/50 block mb-4">03</span>
+          <h4 class="text-xl font-bold mb-2 text-zinc-100">Automated Distribution</h4>
+          <p class="text-zinc-400 text-sm leading-relaxed">Once live assets match specified checklist requirements, funds route directly to user nodes, keeping a 15% marketplace platform cut.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="py-24 px-6 max-w-6xl mx-auto relative">
+  <h2 class="text-5xl font-bold text-center mb-4 font-display text-gold-gradient">Tiered Architecture Plans</h2>
+  <p class="text-center text-zinc-400 mb-12 max-w-md mx-auto italic">Unlock premium data pipelines, continuous submissions, and targeted visibility loops.</p>
+  
+  <div class="flex justify-center mb-12">
+    <div class="bg-zinc-900 p-1 rounded-xl border border-zinc-800 inline-flex">
+      <button onclick="switchPricing('brand')" id="btn-brand" class="px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 bg-gradient-to-r from-yellow-600 to-yellow-500 text-black">
+        For Brands
+      </button>
+      <button onclick="switchPricing('influencer')" id="btn-influencer" class="px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 text-zinc-400 hover:text-zinc-100">
+        For Influencers
+      </button>
+    </div>
+  </div>
+
+  <div id="brand-plans" class="grid md:grid-cols-3 gap-8">
+    <div class="bg-zinc-950 p-8 rounded-2xl border border-zinc-800 flex flex-col justify-between">
+      <div>
+        <h4 class="text-xl font-bold text-zinc-200 mb-2">Starter</h4>
+        <div class="text-3xl font-bold text-zinc-100 mb-6">₹999<span class="text-sm font-normal text-zinc-500">/mo</span></div>
+        <ul class="space-y-3 text-sm text-zinc-400 mb-8">
+          <li class="flex items-center gap-2">🌿 Post up to 3 Campaigns</li>
+          <li class="flex items-center gap-2">🌿 Basic Analytics Reports</li>
+          <li class="flex items-center gap-2">🌿 In-App Message Routing</li>
+        </ul>
+      </div>
+      <button class="w-full py-3 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-200 rounded-xl text-sm font-semibold transition-all">Choose Plan</button>
+    </div>
+    <div class="bg-zinc-950 p-8 rounded-2xl border-2 border-yellow-600 relative flex flex-col justify-between shadow-2xl shadow-yellow-950/20">
+      <span class="absolute -top-3 right-6 bg-gradient-to-r from-yellow-600 to-yellow-500 text-black text-xs uppercase font-extrabold px-3 py-1 rounded-full">Most Popular</span>
+      <div>
+        <h4 class="text-xl font-bold text-zinc-200 mb-2">Growth</h4>
+        <div class="text-3xl font-bold text-zinc-100 mb-6">₹2,999<span class="text-sm font-normal text-zinc-500">/mo</span></div>
+        <ul class="space-y-3 text-sm text-zinc-300 mb-8">
+          <li class="flex items-center gap-2">✨ Unlimited Campaigns</li>
+          <li class="flex items-center gap-2">✨ Advanced Micro-Filters</li>
+          <li class="flex items-center gap-2">✨ Priority Creator Matching</li>
+          <li class="flex items-center gap-2">✨ ROI Core Tracking Sheets</li>
+        </ul>
+      </div>
+      <button class="w-full py-3 bg-gradient-to-r from-yellow-600 to-yellow-500 text-black rounded-xl text-sm font-semibold transition-all shadow-lg shadow-yellow-600/10">Choose Plan</button>
+    </div>
+    <div class="bg-zinc-950 p-8 rounded-2xl border border-zinc-800 flex flex-col justify-between">
+      <div>
+        <h4 class="text-xl font-bold text-zinc-200 mb-2">Enterprise</h4>
+        <div class="text-3xl font-bold text-zinc-100 mb-6">₹9,999+<span class="text-sm font-normal text-zinc-500">/mo</span></div>
+        <ul class="space-y-3 text-sm text-zinc-400 mb-8">
+          <li class="flex items-center gap-2">🔮 Managed Account Executives</li>
+          <li class="flex items-center gap-2">🔮 Infinite Data Exports</li>
+          <li class="flex items-center gap-2">🔮 Tailored Contract Elements</li>
+          <li class="flex items-center gap-2">🔮 API System Access Hooks</li>
+        </ul>
+      </div>
+      <button class="w-full py-3 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-200 rounded-xl text-sm font-semibold transition-all">Contact Enterprise</button>
+    </div>
+  </div>
+
+  <div id="influencer-plans" class="grid md:grid-cols-3 gap-8 hidden">
+    <div class="bg-zinc-950 p-8 rounded-2xl border border-zinc-800 flex flex-col justify-between">
+      <div>
+        <h4 class="text-xl font-bold text-zinc-200 mb-2">Free Core</h4>
+        <div class="text-3xl font-bold text-zinc-100 mb-6">₹0<span class="text-sm font-normal text-zinc-500">/mo</span></div>
+        <ul class="space-y-3 text-sm text-zinc-400 mb-8">
+          <li class="flex items-center gap-2">🌹 Basic Discovery Profile</li>
+          <li class="flex items-center gap-2">🌹 Send 2 Pitch Proposals / mo</li>
+          <li class="flex items-center gap-2">🌹 Standard Escrow Access</li>
+        </ul>
+      </div>
+      <button class="w-full py-3 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-200 rounded-xl text-sm font-semibold transition-all">Sign Up Free</button>
+    </div>
+    <div class="bg-zinc-950 p-8 rounded-2xl border-2 border-purple-600 relative flex flex-col justify-between shadow-2xl">
+      <span class="absolute -top-3 right-6 bg-purple-600 text-white text-xs uppercase font-extrabold px-3 py-1 rounded-full">Growth Accelerator</span>
+      <div>
+        <h4 class="text-xl font-bold text-zinc-200 mb-2">Pro Stream</h4>
+        <div class="text-3xl font-bold text-zinc-100 mb-6">₹399<span class="text-sm font-normal text-zinc-500">/mo</span></div>
+        <ul class="space-y-3 text-sm text-zinc-300 mb-8">
+          <li class="flex items-center gap-2">✨ Unlimited Campaign Pitches</li>
+          <li class="flex items-center gap-2">✨ Verified Creator Badge</li>
+          <li class="flex items-center gap-2">✨ Engagement Metric Analytics</li>
+          <li class="flex items-center gap-2">✨ 5% Discount on Ad Boosts</li>
+        </ul>
+      </div>
+      <button class="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-xl text-sm font-semibold transition-all">Go Pro</button>
+    </div>
+    <div class="bg-zinc-950 p-8 rounded-2xl border border-zinc-800 flex flex-col justify-between">
+      <div>
+        <h4 class="text-xl font-bold text-zinc-200 mb-2">Elite Collective</h4>
+        <div class="text-3xl font-bold text-zinc-100 mb-6">₹999<span class="text-sm font-normal text-zinc-500">/mo</span></div>
+        <ul class="space-y-3 text-sm text-zinc-400 mb-8">
+          <li class="flex items-center gap-2">🔮 Permanent Featured Indexing</li>
+          <li class="flex items-center gap-2">🔮 AI Automation Priority Hooks</li>
+          <li class="flex items-center gap-2">🔮 Custom Portfolio Page Layout</li>
+          <li class="flex items-center gap-2">🔮 Dedicated Creator Manager</li>
+        </ul>
+      </div>
+      <button class="w-full py-3 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-200 rounded-xl text-sm font-semibold transition-all">Join Elite</button>
+    </div>
+  </div>
+</section>
+
+<section id="join" class="py-24 px-6 bg-zinc-950 border-t border-zinc-900 relative overflow-hidden">
+  <div class="absolute -right-20 -top-20 text-[20rem] opacity-5 pointer-events-none select-none">🏵️</div>
+  <h2 class="text-5xl font-bold text-center mb-4 font-display text-gold-gradient">Apply for Early Access</h2>
+  <p class="text-center text-zinc-400 mb-12 max-w-lg mx-auto italic">Join the founding ranks of high-conversion marketing. Secure your placement spot inside the ecosystem ecosystem node.</p>
+
+  <form id="form" class="max-w-lg mx-auto grid gap-6 bg-zinc-900/80 backdrop-blur-sm p-10 rounded-2xl border border-zinc-800 shadow-2xl relative z-10">
+    <div class="flex flex-col gap-1">
+      <label for="name" class="text-xs uppercase tracking-widest text-zinc-400 font-bold">Your Name</label>
+      <input id="name" type="text" placeholder="Jane Doe" class="p-4 bg-black border border-zinc-800 rounded-lg focus:ring-1 focus:ring-yellow-600 focus:border-yellow-600 outline-none text-zinc-200 placeholder-zinc-700 transition-all">
+    </div>
+    <div class="flex flex-col gap-1">
+      <label for="email" class="text-xs uppercase tracking-widest text-zinc-400 font-bold">Email Address</label>
+      <input id="email" type="email" placeholder="jane@example.com" class="p-4 bg-black border border-zinc-800 rounded-lg focus:ring-1 focus:ring-yellow-600 focus:border-yellow-600 outline-none text-zinc-200 placeholder-zinc-700 transition-all">
+    </div>
+    <div class="flex flex-col gap-1">
+      <label for="role" class="text-xs uppercase tracking-widest text-zinc-400 font-bold">Your Essence</label>
+      <select id="role" class="p-4 bg-black border border-zinc-800 rounded-lg focus:ring-1 focus:ring-yellow-600 focus:border-yellow-600 outline-none text-zinc-200 transition-all appearance-none">
+        <option value="" class="text-zinc-600">Select Role</option>
+        <option value="Brand">Brand / Business Owner</option>
+        <option value="Influencer">Influencer / Content Creator</option>
+      </select>
+    </div>
+    <div class="flex flex-col gap-1">
+      <label for="about" class="text-xs uppercase tracking-widest text-zinc-400 font-bold">Primary Target Goals</label>
+      <textarea id="about" placeholder="Tell us about your follower count or business niche targets..." rows="3" class="p-4 bg-black border border-zinc-800 rounded-lg focus:ring-1 focus:ring-yellow-600 focus:border-yellow-600 outline-none text-zinc-200 placeholder-zinc-700 transition-all resize-none"></textarea>
+    </div>
+    <button type="submit" class="mt-2 bg-gradient-to-r from-yellow-700 to-yellow-600 hover:from-yellow-600 hover:to-yellow-500 text-black py-4 rounded-lg font-bold tracking-wide transition-all duration-300 shadow-lg shadow-yellow-900/20">Submit Registration</button>
+    <div id="success-message" class="hidden mt-2 p-4 bg-yellow-900/20 border border-yellow-700/50 text-yellow-500 rounded-lg text-center font-bold text-sm">✨ Your application has been planted successfully!</div>
+  </form>
+</section>
+
+<footer class="text-center p-8 bg-black border-t border-zinc-900 text-zinc-600 text-sm">
+  <p class="font-display italic text-lg mb-2 text-zinc-500">Influence<span class="text-yellow-700">X</span>collab</p>
+  <p>© 2026 InfluenceXcollab Marketplace. Cultivated with analytical precision.</p>
+</footer>
+
+<script>
+// Interactive Pricing Tab Switch Engine
+function switchPricing(type) {
+  const brandPlans = document.getElementById('brand-plans');
+  const influencerPlans = document.getElementById('influencer-plans');
+  const btnBrand = document.getElementById('btn-brand');
+  const btnInfluencer = document.getElementById('btn-influencer');
+
+  if(type === 'brand') {
+    brandPlans.classList.remove('hidden');
+    influencerPlans.classList.add('hidden');
+    btnBrand.className = "px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 bg-gradient-to-r from-yellow-600 to-yellow-500 text-black";
+    btnInfluencer.className = "px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 text-zinc-400 hover:text-zinc-100";
+  } else {
+    influencerPlans.classList.remove('hidden');
+    brandPlans.classList.add('hidden');
+    btnInfluencer.className = "px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 bg-gradient-to-r from-yellow-600 to-yellow-500 text-black";
+    btnBrand.className = "px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 text-zinc-400 hover:text-zinc-100";
+  }
+}
+
+// Form Handlers
+const form = document.getElementById("form");
+const successMessage = document.getElementById("success-message");
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+  let name = document.getElementById("name").value;
+  let email = document.getElementById("email").value;
+  let role = document.getElementById("role").value;
+
+  if (!name || !email || !role) {
+    successMessage.classList.remove("hidden","bg-yellow-900/20","border-yellow-700/50","text-yellow-500");
+    successMessage.classList.add("bg-red-900/20","border-red-700/50","text-red-500");
+    successMessage.innerText = "🥀 Please fill in your Name, Email, and Target Role.";
+    return;
+  }
+
+  successMessage.classList.remove("hidden","bg-red-900/20","border-red-700/50","text-red-500");
+  successMessage.classList.add("bg-yellow-900/20","border-yellow-700/50","text-yellow-500");
+  successMessage.innerText = "✨ Your application has been planted successfully!";
+
+  // Routing Redirection Mechanics
+  setTimeout(() => {
+    if(role === "Brand") {
+      window.location.href = "brand-dashboard.html"; 
+    } else if(role === "Influencer") {
+      window.location.href = "influencer-dashboard.html"; 
+    }
+  }, 1000); 
+  
+  setTimeout(() => {
+    form.reset();
+    setTimeout(() => { successMessage.classList.add("hidden"); }, 3000);
+  }, 500);
+});
+</script>
+</body>
+</html>
