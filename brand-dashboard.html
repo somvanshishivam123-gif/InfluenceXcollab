@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InfluenceXcollab | Brand Console</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Lora', serif; background-color: #050505; color: #ddd; }
+    h1, h2, h3, .font-display { font-family: 'Playfair Display', serif; }
+    .font-sans { font-family: 'Inter', sans-serif; }
+    .glass-panel { background: rgba(15, 15, 25, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+    .text-gold-gradient { background: linear-gradient(135deg, #fef08a 0%, #facc15 50%, #b45309 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  </style>
+</head>
+<body class="antialiased font-sans">
+
+  <div class="flex min-h-screen">
+    
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="w-64 bg-zinc-950 border-r border-zinc-900 p-6 flex flex-col justify-between hidden md:flex">
+      <div class="space-y-8">
+        <h1 class="text-2xl font-bold font-display tracking-wide text-zinc-100">
+          Influence<span class="text-gold-gradient">X</span>
+        </h1>
+        <nav class="space-y-2 text-sm font-medium">
+          <a href="#" class="flex items-center gap-3 px-4 py-3 bg-zinc-900 text-yellow-500 rounded-xl transition-all">🏢 Campaign Center</a>
+          <a href="#" class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900/50 rounded-xl transition-all">🔍 Discover Creators</a>
+          <a href="#" class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900/50 rounded-xl transition-all">🔒 Escrow Vault Ledger</a>
+          <a href="#" class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900/50 rounded-xl transition-all">📊 Premium Reports</a>
+        </nav>
+      </div>
+      <div class="border-t border-zinc-900 pt-4">
+        <a href="index.html" class="text-xs text-zinc-500 hover:text-red-400 flex items-center gap-2 transition-colors">🚪 Logout to Garden</a>
+      </div>
+    </aside>
+
+    <!-- MAIN CONSOLE WORKSPACE -->
+    <main class="flex-1 p-6 md:p-10 space-y-10 overflow-y-auto max-w-7xl mx-auto w-full">
+      
+      <!-- HEADER TERMINAL -->
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div>
+          <h2 class="text-3xl font-bold font-display text-zinc-100 tracking-tight">Brand Operations</h2>
+          <p class="text-sm text-zinc-400 italic">Deploy marketing capital, track multi-channel ROI, and audit escrow pipelines.</p>
+        </div>
+        <div class="bg-zinc-950 border border-zinc-900 rounded-xl p-3 flex items-center gap-4 text-xs font-medium">
+          <div>
+            <span class="text-zinc-500 block">Escrow Vault Balance</span>
+            <span class="text-zinc-200 font-bold font-sans text-sm">₹1,20,000</span>
+          </div>
+          <button class="bg-yellow-600 hover:bg-yellow-500 text-black font-bold px-3 py-2 rounded-lg transition-colors">
+            + Top Up
+          </button>
+        </div>
+      </div>
+
+      <!-- PERFORMANCE MATRIX (ANALYTICS ROW) -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        <div class="glass-panel p-5 rounded-xl">
+          <span class="text-xs text-zinc-500 font-bold uppercase block tracking-wider">Total Spend Locked</span>
+          <span class="text-2xl font-extrabold text-zinc-100 font-sans block mt-1">₹45,000</span>
+        </div>
+        <div class="glass-panel p-5 rounded-xl">
+          <span class="text-xs text-zinc-500 font-bold uppercase block tracking-wider">Active Creators Hired</span>
+          <span class="text-2xl font-extrabold text-yellow-500 font-sans block mt-1">3</span>
+        </div>
+        <div class="glass-panel p-5 rounded-xl">
+          <span class="text-xs text-zinc-500 font-bold uppercase block tracking-wider">Aggregate Impressions</span>
+          <span class="text-2xl font-extrabold text-zinc-100 font-sans block mt-1">1.2M</span>
+        </div>
+        <div class="glass-panel p-5 rounded-xl">
+          <span class="text-xs text-zinc-500 font-bold uppercase block tracking-wider">Avg. Engagement Rate</span>
+          <span class="text-2xl font-extrabold text-green-400 font-sans block mt-1">5.24%</span>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE CAMPAIGN GENERATOR & AI MATCH ENGINE -->
+      <div class="grid lg:grid-cols-3 gap-8">
+        
+        <!-- COLUMN 1 & 2: CREATOR ENGINE FORM -->
+        <div class="lg:col-span-2 glass-panel p-8 rounded-2xl space-y-6">
+          <h3 class="text-xl font-bold font-display text-zinc-200">Deploy New Escrow Campaign</h3>
+          
+          <form id="campaign-form" onsubmit="handleCampaignDeploy(e)" class="grid sm:grid-cols-2 gap-5 text-sm">
+            <div class="flex flex-col gap-1.5 sm:col-span-2">
+              <label class="text-xs uppercase font-bold text-zinc-400 tracking-wider">Campaign Title</label>
+              <input type="text" id="camp-title" required placeholder="e.g., Summer Launch - IG Video Reel Integration" class="p-3.5 bg-black border border-zinc-800 rounded-xl text-zinc-200 outline-none focus:ring-1 focus:ring-yellow-500 transition-all">
+            </div>
+
+            <div class="flex flex-col gap-1.5">
+              <label class="text-xs uppercase font-bold text-zinc-400 tracking-wider">Niche Category</label>
+              <select id="camp-niche" required class="p-3.5 bg-black border border-zinc-800 rounded-xl text-zinc-200 outline-none focus:ring-1 focus:ring-yellow-500 transition-all">
+                <option value="Tech">Tech / Gadgets</option>
+                <option value="Fashion">Fashion / Lifestyle</option>
+                <option value="Food">Food / Vlogging</option>
+                <option value="Fitness">Fitness / Health</option>
+              </select>
+            </div>
+
+            <div class="flex flex-col gap-1.5">
+              <label class="text-xs uppercase font-bold text-zinc-400 tracking-wider">Escrow Budget Asset (₹)</label>
+              <input type="number" id="camp-budget" required placeholder="e.g., 15000" class="p-3.5 bg-black border border-zinc-800 rounded-xl text-zinc-200 outline-none focus:ring-1 focus:ring-yellow-500 transition-all font-sans">
+            </div>
+
+            <div class="flex flex-col gap-1.5 sm:col-span-2">
+              <label class="text-xs uppercase font-bold text-zinc-400 tracking-wider">Deliverable Parameters Checklist</label>
+              <textarea id="camp-desc" rows="3" required placeholder="Specify exact requirements (e.g., 60-second Instagram Reel, 30-day link in bio, brand tag in caption)..." class="p-3.5 bg-black border border-zinc-800 rounded-xl text-zinc-200 outline-none focus:ring-1 focus:ring-yellow-500 transition-all resize-none"></textarea>
+            </div>
+
+            <div class="sm:col-span-2 pt-2">
+              <button type="submit" class="w-full bg-gradient-to-r from-yellow-600 to-yellow-500 text-black py-4 rounded-xl font-bold tracking-wide shadow-lg shadow-yellow-900/10 hover:scale-[1.01] transition-all">
+                Lock Funds & Deploy Campaign
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- COLUMN 3: AUTOMATED INFLUENCER AI MATCH ENGINE -->
+        <div class="space-y-4">
+          <div class="flex justify-between items-center">
+            <h3 class="text-xl font-bold font-display text-zinc-200">InfluenceX AI Match</h3>
+            <span class="text-[10px] font-bold uppercase tracking-widest text-purple-400 bg-purple-950/40 px-2.5 py-1 rounded-full border border-purple-900/30 animate-pulse">Engine Active</span>
+          </div>
+          
+          <div class="bg-zinc-950 rounded-2xl border border-zinc-900 p-5 space-y-4">
+            <p class="text-xs text-zinc-500 italic">Top curators parsed instantly based on your historical industry engagement profiles:</p>
+            
+            <!-- Creator Profile Item 1 -->
+            <div class="p-4 bg-zinc-900/40 border border-zinc-800/60 rounded-xl flex items-center justify-between gap-3">
+              <div class="space-y-1">
+                <span class="font-bold text-sm text-zinc-200 block">@vlog_curator</span>
+                <span class="text-xs text-zinc-500 font-sans">Food & Tech • <span class="text-yellow-500 font-medium">84K Live Fol.</span></span>
+              </div>
+              <button onclick="triggerHire('@vlog_curator', 12000)" class="px-3 py-1.5 bg-zinc-900 hover:bg-yellow-600 hover:text-black border border-zinc-800 rounded-lg text-xs font-bold text-yellow-500 transition-all">
+                Hire Now
+              </button>
+            </div>
+
+            <!-- Creator Profile Item 2 -->
+            <div class="p-4 bg-zinc-900/40 border border-zinc-800/60 rounded-xl flex items-center justify-between gap-3">
+              <div class="space-y-1">
+                <span class="font-bold text-sm text-zinc-200 block">@aesthetic_threads</span>
+                <span class="text-xs text-zinc-500 font-sans">Fashion / Design • <span class="text-yellow-500 font-medium">142K Live Fol.</span></span>
+              </div>
+              <button onclick="triggerHire('@aesthetic_threads', 25000)" class="px-3 py-1.5 bg-zinc-900 hover:bg-yellow-600 hover:text-black border border-zinc-800 rounded-lg text-xs font-bold text-yellow-500 transition-all">
+                Hire Now
+              </button>
+            </div>
+
+            <!-- Creator Profile Item 3 -->
+            <div class="p-4 bg-zinc-900/40 border border-zinc-800/60 rounded-xl flex items-center justify-between gap-3 opacity-60">
+              <div class="space-y-1">
+                <span class="font-bold text-sm text-zinc-200 block">@pixel_tech_reviews</span>
+                <span class="text-xs text-zinc-500 font-sans">Gadgets & Dev • <span class="text-yellow-500 font-medium">52K Live Fol.</span></span>
+              </div>
+              <span class="text-[10px] uppercase tracking-wider bg-zinc-900 border border-zinc-800 px-2 py-1 rounded text-zinc-400 font-bold">
+                In Contract
+              </span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ONGOING CONTRACT MONITORS & DELIVERABLE AUDITING -->
+      <div class="space-y-4">
+        <h3 class="text-xl font-bold font-display text-zinc-200">Active Escrow Audit Pipeline</h3>
+        <div class="bg-zinc-950 border border-zinc-900 rounded-2xl overflow-hidden divide-y divide-zinc-900">
+          
+          <!-- Audit Row 1 -->
+          <div class="p-5 flex flex-col sm:flex-row justify-between sm:items-center gap-4 text-sm">
+            <div class="space-y-1">
+              <h4 class="font-bold text-zinc-200">Campaign Node #8204 — 1 Video Reel</h4>
+              <p class="text-xs text-zinc-500">Hired Creator: <span class="text-zinc-300">@style_maven</span> • Escrow Locked Capital: <span class="text-zinc-400 font-sans font-medium">₹15,000</span></p>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-xs text-yellow-500 bg-yellow-950/30 border border-yellow-900/30 px-3 py-1.5 rounded-full font-medium">
+                Draft Pending Audit
+              </span>
+              <button onclick="approveMilestone('#8204')" class="px-4 py-2 bg-gradient-to-r from-yellow-600 to-yellow-500 text-black rounded-xl text-xs font-bold shadow-md hover:scale-105 transition-all">
+                Approve & Release Funds
+              </button>
+            </div>
+          </div>
+
+          <!-- Audit Row 2 -->
+          <div class="p-5 flex flex-col sm:flex-row justify-between sm:items-center gap-4 text-sm">
+            <div class="space-y-1">
+              <h4 class="font-bold text-zinc-400">Campaign Node #7932 — Unboxing Story</h4>
+              <p class="text-xs text-zinc-500">Hired Creator: <span class="text-zinc-400">@tech_unboxed</span> • Escrow Locked Capital: <span class="text-zinc-500 font-sans font-medium">₹8,000</span></p>
+            </div>
+            <span class="text-xs text-green-400 bg-green-950/20 border border-green-900/30 px-3 py-1.5 rounded-full font-medium text-center self-start sm:self-auto">
+              ✓ Disbursed Asset (Platform Fee Kept)
+            </span>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- CORE SCRIPT CONSOLE OPERATIONS -->
+  <script>
+    document.getElementById('campaign-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const title = document.getElementById('camp-title').value;
+      const budget = document.getElementById('camp-budget').value;
+      
+      alert(`🔒 Escrow Vault Command Triggered!\n\nProcessing Target Asset Deployment:\nCampaign: "${title}"\nCapital to Lock: ₹${Number(budget).toLocaleString()}\n\nRouting directly to secure payment confirmation node...`);
+      this.reset();
+    });
+
+    function triggerHire(username, targetBudget) {
+      confirm(`Do you wish to directly issue an exclusive contract proposal to ${username} for an Escrow base target of ₹${targetBudget.toLocaleString()}?`);
+    }
+
+    function approveMilestone(nodeId) {
+      alert(`⚠️ Safety Ledger Verification Protocol!\n\nApproving Campaign Node ${nodeId}.\nThis will permanently release the escrow assets directly to the creator's node, sub-routing a 15% marketplace transactional commission cut to the system ledger.`);
+    }
+  </script>
+</body>
+</html>
